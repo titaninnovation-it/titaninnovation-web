@@ -30,7 +30,7 @@ export default function ProfileMenu(props: ProfileMenuProps) {
     { id: 1, name: "Change Password", iconName: "", path: "/change-password" },
     { id: 2, name: "Favourite", iconName: "", path: "/my-favourite" },
     { id: 3, name: "My Appointments", iconName: "", path: "/my-appointments" },
-    { id: 4, name: "My Request", iconName: "", path: "/my-request" },
+    { id: 4, name: "My Requests", iconName: "", path: "/my-request" },
     { id: 5, name: "My Purchase", iconName: "", path: "/my-purchase" },
     {
       id: 6,
