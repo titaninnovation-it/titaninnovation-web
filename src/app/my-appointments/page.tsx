@@ -147,7 +147,7 @@ export default function Page() {
                 margin: 10,
               }}
               onClick={() => {
-                router.push(`/my-appointments/${data.id}`);
+                router.push(`/my-request/${data.id}`);
               }}
             >
               <div className={`flex-1`}>
