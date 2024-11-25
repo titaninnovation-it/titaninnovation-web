@@ -21,7 +21,7 @@ export default function SellRentSection() {
       />
       <div className={`flex gap-4 ${isMobile ? `w-full` : `flex-col`}`}>
         <Button
-          title="Sell Mine 1"
+          title="Sell Mine"
           iconRight={
             <CustomIcon
               name="icon-park-solid:right-c"
