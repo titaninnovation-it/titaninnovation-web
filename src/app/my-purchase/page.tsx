@@ -63,7 +63,6 @@ export default function Page() {
             className="text-center whitespace-pre-line text-black"
           />
         </div>
-
         <div className={`grid grid-cols-1 p-4`}>
           {purchases.map((data) => (
             <div
