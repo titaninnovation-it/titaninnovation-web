@@ -10,7 +10,7 @@ export default function MainContainer() {
   return (
     <>
       <div
-        className={`flex p-8 bg-white mb-10 ${
+        className={`flex p-8 bg-white ${
           isMobile
             ? `flex-col-reverse`
             : `w-10/12 rounded-3xl self-center bottom-[5rem] z-10 relative shadow-2xl`

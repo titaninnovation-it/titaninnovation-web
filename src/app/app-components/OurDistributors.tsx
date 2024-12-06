@@ -8,6 +8,7 @@ import {
   GetApiDistributorParams,
 } from "@/orval/type.schemas";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function OurDistributors() {
@@ -39,7 +40,7 @@ export default function OurDistributors() {
     }) ?? [];
   return (
     <>
-      <div className="flex flex-col p-4">
+      <div className="flex flex-col mb-10">
         <Text
           size="2-extra-big"
           title={`Our Business Partners`}
@@ -53,33 +54,21 @@ export default function OurDistributors() {
       >
         {distributors.map((data) => (
           <div
+            className="relative w-[100px] h-[100px]"
             key={data.id}
-            className="ml-5 shadow-lg"
             onClick={() => {
               router.push(`/distributor-detail/${data.id}`);
             }}
           >
-            <img
+            <Image
               src={`${data.companyLogoImageUrl}`}
               alt=""
-              className={`mr-2`}
-              style={{
-                width: 50,
-                height: 50,
-                objectFit: "contain",
-                borderRadius: 1000,
-              }}
+              fill
+              style={{ objectFit: "contain" }}
+              className="rounded-full"
             />
           </div>
         ))}
-        <button
-          className="ml-10 border-white border-2 self-center px-4 bg-white"
-          onClick={() => {
-            router.push("/partners");
-          }}
-        >
-          <Text size="medium" title="View More" className="" />
-        </button>
       </div>
     </>
   );

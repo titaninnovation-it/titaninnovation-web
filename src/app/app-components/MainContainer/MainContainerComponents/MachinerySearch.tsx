@@ -6,7 +6,6 @@ import { useQuery } from "@tanstack/react-query";
 import { FilterDto, ListingType } from "@/orval/type.schemas";
 import { AxiosLibs } from "@/libs/axios-client";
 import CustomIcon from "@/components/Shared/CustomIcon";
-import IconMagnifyingGlass from "@/svg/MagnifyingGlass.svg";
 import { Colors } from "@/constants/Colors";
 import ButtonIcon from "@/components/Shared/ButtonIcon";
 import { useRef } from "react";
@@ -83,7 +82,7 @@ export default function MachinerySearch() {
           className="whitespace-nowrap"
         />
       </button>
-      <div className="flex mb-10">
+      <div className="flex mb-6">
         <div
           ref={machineTypesScrollContainerRef}
           className="flex w-full overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] gap-10 "
@@ -91,16 +90,23 @@ export default function MachinerySearch() {
           {machineTypes.map((data) => (
             <button
               key={data.id}
-              className="flex flex-col whitespace-nowrap items-center gap-2"
+              className="flex flex-col whitespace-nowrap items-center "
               onClick={() => {
                 router.push(`/buy-rent?machineTypeIds=${data.id}`);
               }}
             >
-              <img
-                src={data.typeIconUrl ?? ""}
-                alt=""
-                className="w-16 h-16 object-contain"
-              />
+              <div
+                className="flex items-center justify-center"
+                style={{ position: "relative", height: 50, width: 50 }}
+              >
+                <Image
+                  src={data.typeIconUrl ?? ""}
+                  alt=""
+                  width={60}
+                  height={60}
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
               <Text size="small" title={`${data.name}`} />
             </button>
           ))}
@@ -132,11 +138,15 @@ export default function MachinerySearch() {
                 router.push(`/buy-rent?machineMakeIds=${data.id}`);
               }}
             >
-              <div className="relative w-[60px] h-[60px] bg-[#F9F9F9] border-1 p-8 rounded-lg">
+              <div
+                className="flex bg-[#F9F9F9] border-1 p-2 rounded-lg items-center justify-center"
+                style={{ position: "relative", height: 50, width: 50 }}
+              >
                 <Image
                   src={data.logoImageUrl ?? ``}
                   alt=""
-                  fill
+                  width={60}
+                  height={60}
                   style={{ objectFit: "contain" }}
                 />
               </div>
