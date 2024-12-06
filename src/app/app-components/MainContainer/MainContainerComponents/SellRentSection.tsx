@@ -17,31 +17,37 @@ export default function SellRentSection() {
       <Text
         size={"2-extra-big"}
         title="Want to Sell / Rent Your Machinery?"
-        className="mb-4"
+        className={isMobile ? `mb-4` : `mb-10`}
       />
       <div className={`flex gap-4 ${isMobile ? `w-full` : `flex-col`}`}>
         <Button
           title="Sell Mine"
           iconRight={
-            <CustomIcon
-              name="icon-park-solid:right-c"
-              size={isMobile ? 20 : 25}
-              color={Colors.white}
-              className="ml-auto"
-            />
+            <>
+              {!isMobile && (
+                <CustomIcon
+                  name="icon-park-solid:right-c"
+                  size={25}
+                  color={Colors.white}
+                  className="ml-auto"
+                />
+              )}
+            </>
           }
           iconLeft={
             <>
-              <img
-                src={`/image_90_layerstyle.png`}
-                alt=""
-                className={`mr-2`}
-                style={{
-                  width: 50,
-                  height: 50,
-                  objectFit: "contain",
-                }}
-              />
+              {!isMobile && (
+                <img
+                  src={`/image_90_layerstyle.png`}
+                  alt=""
+                  className={`mr-2`}
+                  style={{
+                    width: 50,
+                    height: 50,
+                    objectFit: "contain",
+                  }}
+                />
+              )}
             </>
           }
           className={`w-full p-4 bg-[#003366]`}
@@ -53,25 +59,31 @@ export default function SellRentSection() {
         <Button
           title="Rent Mine"
           iconRight={
-            <CustomIcon
-              name="icon-park-solid:right-c"
-              size={isMobile ? 20 : 25}
-              color={Colors.white}
-              className="ml-auto"
-            />
+            <>
+              {!isMobile && (
+                <CustomIcon
+                  name="icon-park-solid:right-c"
+                  size={25}
+                  color={Colors.white}
+                  className="ml-auto"
+                />
+              )}
+            </>
           }
           iconLeft={
             <>
-              <img
-                src={`/image_91_layerstyle.png`}
-                alt=""
-                className={`mr-2`}
-                style={{
-                  width: 50,
-                  height: 50,
-                  objectFit: "contain",
-                }}
-              />
+              {!isMobile && (
+                <img
+                  src={`/image_91_layerstyle.png`}
+                  alt=""
+                  className={`mr-2`}
+                  style={{
+                    width: 50,
+                    height: 50,
+                    objectFit: "contain",
+                  }}
+                />
+              )}
             </>
           }
           className={`w-full p-4 bg-[#FAA71A]`}
