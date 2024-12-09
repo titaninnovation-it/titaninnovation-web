@@ -6,6 +6,7 @@ import IconMapPin from "@/svg/MapPin.svg";
 import { Colors } from "@/constants/Colors";
 import { getListingTypeColor } from "@/libs/utils";
 import HeartButton from "../HeartButton";
+import Image from "next/image";
 interface ListingCardProps {
   data: ListingDto;
   containerStyle?: string;
@@ -20,21 +21,31 @@ export default function ListingCard(props: ListingCardProps) {
       style={{
         display: "flex",
         flex: "0 0 auto",
-        width: isMobile ? "95%" : 270,
-        // height: 300,
+        width: isMobile ? 210 : 300,
         flexDirection: "column",
-        margin: isMobile ? "2%" : "",
       }}
     >
       <div className={`flex-1`}>
-        <img
-          src={props.data.thumbnailUrl ?? ``}
-          className={`w-full object-cover rounded-t-2xl ${
-            isMobile ? `h-40` : `h-60 `
-          }`}
-          alt=""
-          onClick={props.onClick}
-        />
+        <div
+          className="flex items-center justify-center"
+          style={{
+            position: "relative",
+            height: isMobile ? 160 : 240,
+            width: isMobile ? 210 : 300,
+          }}
+        >
+          <Image
+            src={`${props.data.thumbnailUrl}`}
+            alt=""
+            fill
+            style={{
+              objectFit: "cover",
+              borderTopLeftRadius: 20,
+              borderTopRightRadius: 20,
+            }}
+            onClick={props.onClick}
+          />
+        </div>
       </div>
       <div className="flex flex-col flex-1 bg-white rounded-b-2xl p-4 border-2">
         <HeartButton

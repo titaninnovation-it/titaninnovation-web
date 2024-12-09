@@ -40,7 +40,7 @@ export default function OurDistributors() {
     }) ?? [];
   return (
     <>
-      <div className="flex flex-col mb-10">
+      <div className={`flex flex-col mb-10 ${isMobile ? `p-4` : ``}`}>
         <Text
           size="2-extra-big"
           title={`Our Business Partners`}
@@ -48,13 +48,14 @@ export default function OurDistributors() {
         />
       </div>
       <div
-        className={`flex w-full mb-20 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${
+        className={`flex w-full mb-20 px-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${
           isMobile ? `` : `justify-center`
         }`}
       >
         {distributors.map((data) => (
           <div
-            className="relative w-[100px] h-[100px]"
+            className="flex items-center justify-center"
+            style={{ position: "relative", height: 80, width: 80 }}
             key={data.id}
             onClick={() => {
               router.push(`/distributor-detail/${data.id}`);
@@ -63,9 +64,9 @@ export default function OurDistributors() {
             <Image
               src={`${data.companyLogoImageUrl}`}
               alt=""
-              fill
-              style={{ objectFit: "contain" }}
-              className="rounded-full"
+              width={80}
+              height={80}
+              style={{ objectFit: "contain", borderRadius: 1000 }}
             />
           </div>
         ))}

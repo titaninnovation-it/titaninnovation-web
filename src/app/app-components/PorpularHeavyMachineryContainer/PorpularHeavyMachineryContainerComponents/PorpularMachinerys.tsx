@@ -16,7 +16,7 @@ export default function PorpularMachinerys() {
     queryKey: ["PorpularMachinerys"],
     queryFn: async ({ pageParam = 1 }) => {
       const query: GetApiListingParams = {
-        PageSize: 3,
+        PageSize: 10,
         PageNumber: pageParam,
       };
       const { data } = await AxiosLibs.axiosClient.get(`/api/Listing`, {
@@ -51,14 +51,6 @@ export default function PorpularMachinerys() {
           }}
         />
       ))}
-      <button
-        className="ml-10 border-white border-2 self-center px-4 bg-white"
-        onClick={() => {
-          router.push("/buy-rent");
-        }}
-      >
-        <Text size="medium" title="View More" className="" />
-      </button>
     </div>
   );
 }

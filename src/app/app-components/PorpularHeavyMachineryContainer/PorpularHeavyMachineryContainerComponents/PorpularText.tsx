@@ -16,7 +16,7 @@ export default function PorpularText() {
       <Text size="big" title="Top view product" className="text-white mb-2"/>
         <Text size="2-extra-big" title="Our Latest Machines" className="text-white"/>
       </div>
-      <div className="flex flex-wrap bg-[#18355A] p-4 self-center">
+      <div className="flex flex-wrap bg-[#18355A] p-4 self-center mb-4">
         {specials.map((data) => (
           <div key={data} className="flex justify-center items-center">
             <CustomIcon
