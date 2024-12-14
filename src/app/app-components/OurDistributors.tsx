@@ -40,7 +40,7 @@ export default function OurDistributors() {
     }) ?? [];
   return (
     <>
-      <div className={`flex flex-col mb-10 ${isMobile ? `p-4` : ``}`}>
+      <div className={`flex flex-col mb-10 ${isMobile ? `p-10 pb-0` : ``}`}>
         <Text
           size="2-extra-big"
           title={`Our Business Partners`}

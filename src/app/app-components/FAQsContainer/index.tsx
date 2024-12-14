@@ -10,9 +10,13 @@ export default function FAQsContainer() {
   const isMobile = useIsMobile();
   const isHide = ["/faq"].some((path) => pathname.includes(path));
   return (
-    <div className={`flex ${isMobile ? `flex-col` : `flex-row p-10`}`}>
-      {!isHide && <AnyQuestionsText />}
-      <SectionDropdown />
+    <div
+      className={`flex bg-[#FAA71B] ${isMobile?`p-4`:`p-20`}`}
+    >
+      <div className={`flex bg-white shadow-lg rounded-2xl ${isMobile ? `flex-col` : `flex-row p-10 w-full`}`}>
+        {!isHide && <AnyQuestionsText />}
+        <SectionDropdown />
+      </div>
     </div>
   );
 }

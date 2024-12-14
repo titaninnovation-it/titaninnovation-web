@@ -1,6 +1,6 @@
 import Text from "../Text";
 import useIsMobile from "@/libs/useIsMobile";
-import { BrowsingHistoryDto, ListingDto } from "@/orval/type.schemas";
+import { ListingDto } from "@/orval/type.schemas";
 import IconMeter from "@/svg/Meter.svg";
 import IconMapPin from "@/svg/MapPin.svg";
 import { Colors } from "@/constants/Colors";
@@ -25,7 +25,11 @@ export default function ListingCard(props: ListingCardProps) {
         flexDirection: "column",
       }}
     >
-      <div className={`flex-1`}>
+      <div className={`flex-1 relative`}>
+      <HeartButton
+          id={props.data.id ?? ""}
+          isUserFavourite={props.data.isUserFavourite ?? false}
+        />
         <div
           className="flex items-center justify-center"
           style={{
@@ -48,10 +52,6 @@ export default function ListingCard(props: ListingCardProps) {
         </div>
       </div>
       <div className="flex flex-col flex-1 bg-white rounded-b-2xl p-4 border-2">
-        <HeartButton
-          id={props.data.id ?? ""}
-          isUserFavourite={props.data.isUserFavourite ?? false}
-        />
         <div className="flex flex-col gap-2" onClick={props.onClick}>
           <div className="flex flex-wrap w-full gap-2">
             <div

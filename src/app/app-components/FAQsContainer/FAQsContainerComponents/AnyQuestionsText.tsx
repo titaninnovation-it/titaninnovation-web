@@ -1,3 +1,4 @@
+import CustomIcon from "@/components/Shared/CustomIcon";
 import Text from "@/components/Shared/Text";
 import useIsMobile from "@/libs/useIsMobile";
 import { useRouter } from "next/navigation";
@@ -13,7 +14,7 @@ export default function AnyQuestionsText() {
         className="whitespace-pre-line mb-4"
       />
       <button
-        className="text-start"
+        className="flex text-start gap-2 items-center"
         onClick={() => {
           router.push("/faq");
         }}
@@ -21,7 +22,12 @@ export default function AnyQuestionsText() {
         <Text
           title={"More FAQs"}
           size="medium"
-          className={`cursor-pointer text-blue-500`}
+          className={`cursor-pointer text-[#1977F2]`}
+        />
+        <CustomIcon
+          name="icon-park-outline:right-c"
+          size={isMobile ? 20 : 20}
+          color={"#1977F2"}
         />
       </button>
     </div>
