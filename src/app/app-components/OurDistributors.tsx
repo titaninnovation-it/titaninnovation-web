@@ -48,9 +48,7 @@ export default function OurDistributors() {
         />
       </div>
       <div
-        className={`flex w-full mb-20 px-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${
-          isMobile ? `` : `justify-center`
-        }`}
+        className={`flex w-full mb-20 px-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] justify-center`}
       >
         {distributors.map((data) => (
           <div

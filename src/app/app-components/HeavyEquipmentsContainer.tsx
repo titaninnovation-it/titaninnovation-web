@@ -55,9 +55,7 @@ export default function HeavyEquipmentsContainer(
         />
       </div>
       <div
-        className={`flex mb-20 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${
-          isMobile ? `` : `justify-center`
-        }`}
+        className={`flex mb-20 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] justify-center`}
       >
         {browsingHistories.map((data) => (
           <ListingCard
