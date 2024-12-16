@@ -153,7 +153,7 @@ export default function Nav(props: NavProps) {
           <img
             src={`/titan_innovation_logo.png`}
             alt=""
-            className={`${isMobile ? `mx-8` : ``}`}
+            className={`${isMobile ? `mx-8` : `mr-10`}`}
             style={{
               width: 125,
               height: 50,
@@ -181,7 +181,7 @@ export default function Nav(props: NavProps) {
                       handlePush(item.path);
                     }
                   }}
-                  className={`flex w-full p-4 px-8 cursor-pointer justify-center items-center`}
+                  className={`flex w-full p-4 cursor-pointer justify-center items-center`}
                 >
                   <div className="flex flex-row w-full">
                     <Text

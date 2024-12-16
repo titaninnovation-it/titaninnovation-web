@@ -5,11 +5,28 @@ import useIsMobile from "@/libs/useIsMobile";
 export default function AbountUsContainer() {
   const isMobile = useIsMobile();
   return (
-    <div className={`flex bg-white ${isMobile ? `flex-col` : ``}`}>
-      <div className={`flex flex-1 items-center justify-center ${isMobile ? `p-4` : `p-20`}`}>
-        <Text className=" whitespace-pre-line" size={"2-extra-big"} title={`OUR STORY\nAbout Us.`} />
+    <div className={`flex bg-white ${isMobile ? `flex-col p-4` : `p-20`}`}>
+      <div
+        className={`flex flex-col flex-1 justify-center ${
+          isMobile ? `text-center` : `pl-40`
+        }`}
+      >
+        <Text
+          className=" whitespace-pre-line"
+          size={"medium"}
+          title={`OUR STORY`}
+        />
+        <Text
+          className=" whitespace-pre-line"
+          size={"2-extra-big"}
+          title={`About Us.`}
+        />
       </div>
-      <div className={`flex-[50%] ${isMobile ? `p-4` : `p-20`}`}>
+      <div
+        className={`shadow-lg rounded-lg ${
+          isMobile ? `p-6` : `flex-[20%] p-10`
+        }`}
+      >
         <Text
           className=" whitespace-pre-line"
           size={"medium"}

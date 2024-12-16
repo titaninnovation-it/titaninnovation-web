@@ -47,7 +47,7 @@ export default function Footer() {
 
   return (
     <div className="flex flex-col">
-      <div className={`flex gap-4 ${isMobile ? `flex-col p-4` : `p-20 pb-0`}`}>
+      <div className={`flex gap-4 ${isMobile ? `flex-col p-4` : `w-[75%] self-center pt-20`}`}>
         <CompanyInfo />
         {list.map((data) => (
           <FooterSectionDropdown key={data.title} data={data} />

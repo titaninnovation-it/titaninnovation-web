@@ -47,7 +47,7 @@ export default function HeavyEquipmentsContainer(
     }) ?? [];
   return (
     <>
-      <div className="flex flex-col p-4">
+      <div className={`flex flex-col ${isMobile ? `p-10` : `p-20`}`}>
         <Text
           size="2-extra-big"
           title={props.title}
@@ -55,28 +55,17 @@ export default function HeavyEquipmentsContainer(
         />
       </div>
       <div
-        className={`flex mb-20 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${
-          isMobile ? `` : `justify-center`
-        }`}
+        className={`flex mb-20 gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] justify-center`}
       >
         {browsingHistories.map((data) => (
           <ListingCard
             key={data.id}
             data={data.listing as ListingDto}
-            containerStyle="ml-5"
             onClick={() => {
               router.push(`/buy-rent/${data.id}`);
             }}
           />
         ))}
-        <button
-          className="ml-10 border-white border-2 self-center px-4 bg-white"
-          onClick={() => {
-            browsingHistoryInfiniteQuery.fetchNextPage();
-          }}
-        >
-          <Text size="medium" title="View More" className="" />
-        </button>
       </div>
     </>
   );

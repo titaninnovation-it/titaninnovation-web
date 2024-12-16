@@ -49,6 +49,7 @@ export default function LoginForm(props: LoginFormProps) {
       <TextInput
         title="Email"
         value={email}
+        autoCapitalize={'none'}
         onChange={(e) => setEmail(e.target.value)}
         className="mb-4"
       />

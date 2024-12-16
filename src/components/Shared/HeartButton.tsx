@@ -6,6 +6,8 @@ import { PostApiUserFavouriteMutationBody } from "@/orval/type";
 import { AxiosLibs } from "@/libs/axios-client";
 import { useState } from "react";
 import { useAuthStore } from "@/libs/zustand/authStore";
+import CustomIcon from "./CustomIcon";
+import useIsMobile from "@/libs/useIsMobile";
 
 interface HeartButtonProps {
   id: string;
@@ -13,6 +15,7 @@ interface HeartButtonProps {
 }
 
 export default function HeartButton(props: HeartButtonProps) {
+  const isMobile = useIsMobile();
   const authStore = useAuthStore();
   const [isUserFavourite, setIsUserFavourite] = useState<boolean>(
     props.isUserFavourite
@@ -36,7 +39,7 @@ export default function HeartButton(props: HeartButtonProps) {
     <>
       {authStore.profile && (
         <button
-          className={`flex justify-end`}
+          className={`flex items-center justify-center absolute z-10 right-0 m-4`}
           onClick={async () => {
             setIsUserFavourite(!isUserFavourite);
             if (!isUserFavourite) {
@@ -51,12 +54,16 @@ export default function HeartButton(props: HeartButtonProps) {
           }}
         >
           {isUserFavourite ? (
-            <IconHeart color={Colors.red} width={25} height={25} />
+            <CustomIcon
+              name="mdi:heart"
+              size={isMobile ? 25 : 30}
+              color={Colors.red}
+            />
           ) : (
-            <IconHeartOutline
-              color={`#000000`}
-              width={25}
-              height={25}
+            <CustomIcon
+              name="mdi:heart-outline"
+              size={isMobile ? 25 : 30}
+              color={Colors.white}
             />
           )}
         </button>

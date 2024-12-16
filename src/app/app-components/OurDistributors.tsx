@@ -8,6 +8,7 @@ import {
   GetApiDistributorParams,
 } from "@/orval/type.schemas";
 import { useInfiniteQuery } from "@tanstack/react-query";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function OurDistributors() {
@@ -39,7 +40,7 @@ export default function OurDistributors() {
     }) ?? [];
   return (
     <>
-      <div className="flex flex-col p-4">
+      <div className={`flex flex-col mb-10 ${isMobile ? `p-10 pb-0` : ``}`}>
         <Text
           size="2-extra-big"
           title={`Our Business Partners`}
@@ -47,39 +48,26 @@ export default function OurDistributors() {
         />
       </div>
       <div
-        className={`flex w-full mb-20 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${
-          isMobile ? `` : `justify-center`
-        }`}
+        className={`flex w-full mb-20 px-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] justify-center`}
       >
         {distributors.map((data) => (
           <div
+            className="flex items-center justify-center"
+            style={{ position: "relative", height: 80, width: 80 }}
             key={data.id}
-            className="ml-5 shadow-lg"
             onClick={() => {
               router.push(`/distributor-detail/${data.id}`);
             }}
           >
-            <img
+            <Image
               src={`${data.companyLogoImageUrl}`}
               alt=""
-              className={`mr-2`}
-              style={{
-                width: 50,
-                height: 50,
-                objectFit: "contain",
-                borderRadius: 1000,
-              }}
+              width={80}
+              height={80}
+              style={{ objectFit: "contain", borderRadius: 1000 }}
             />
           </div>
         ))}
-        <button
-          className="ml-10 border-white border-2 self-center px-4 bg-white"
-          onClick={() => {
-            router.push("/partners");
-          }}
-        >
-          <Text size="medium" title="View More" className="" />
-        </button>
       </div>
     </>
   );

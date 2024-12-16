@@ -19,7 +19,7 @@ export default function FooterSectionDropdown(
   const [isToggle, setIsToggle] = useState<boolean>();
   return (
     <>
-      <div className={`flex flex-1 flex-col ${!isMobile && ``}`}>
+      <div className={`flex flex-col ${isMobile ? `flex-1`:`px-6`}`}>
         <button
           className={`flex text-start mb-4`}
           onClick={() => setIsToggle(!isToggle)}
@@ -52,7 +52,7 @@ export default function FooterSectionDropdown(
                 <Text
                   title={data.name}
                   size="small"
-                  className={`cursor-pointer`}
+                  className={`cursor-pointer text-[#5E6282]`}
                 />
               </button>
             ))}

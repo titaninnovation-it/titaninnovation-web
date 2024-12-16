@@ -51,23 +51,23 @@ export default function SectionDropdown() {
     }
   };
   return (
-    <div className="flex flex-[60%] flex-col">
+    <div className="flex flex-[25%] flex-col">
       {list.map((data, index) => (
         <div
           key={data.title}
-          className="flex flex-col gap-2 p-4 bg-white rounded-2xl mb-10"
+          className={`flex flex-col gap-2 p-4 bg-white rounded-2xl border-b-1 ${isMobile?``:`mb-6`}`}
         >
-          <button className="flex" onClick={() => handleToggle(index)}>
-            <Text title={data.title} size="medium" />
+          <button className="flex text-start" onClick={() => handleToggle(index)}>
+            <Text title={data.title} size="medium" className="text-[#1E1D4C]"/>
             <CustomIcon
-              name={activeIndexs.find((z)=>z == index)!=undefined?"ic:baseline-minus":"ic:baseline-plus"}
+              name={activeIndexs.find((z)=>z == index)!=undefined?"icon-park-twotone:up-c":"icon-park-twotone:down-c"}
               size={25}
-              color={"#000000"}
+              color={"#FFD3B6"}
               className="ml-auto"
             />
           </button>
           {activeIndexs.find((z) => z == index) != undefined ? (
-            <Text title={data.description} size="small" />
+            <Text title={data.description} size="small" className="text-[#5E6282] leading-6"/>
           ) : (
             <></>
           )}
