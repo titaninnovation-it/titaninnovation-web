@@ -140,7 +140,7 @@ export default function StepsSwitcher(props: StepsSwitcherProps) {
     {
       title: "Send Enquiry",
       description:
-        "Our dedicated professional insurance agent wil contact you soon",
+        "Our dedicated professional insurance agent will contact you soon",
       path: null,
       icon: <IconMagnifyingGlass color={Colors.black} width={30} height={30} />,
     },
