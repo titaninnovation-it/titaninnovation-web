@@ -70,7 +70,7 @@ export default function ProfileMenu(props: ProfileMenuProps) {
         onClick={() => handleOpen(true)}
       >
         <img
-          src={`/logo.png`}
+          src={`${props.userProfile.profilePictureUrl}`}
           alt=""
           style={{
             width: isMobile ? 20 : 30,

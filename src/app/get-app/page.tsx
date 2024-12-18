@@ -1,12 +1,11 @@
 "use client";
 
-import useIsMobile from "@/libs/useIsMobile";
+import { PaddingHeaderHeight } from "@/components/Header";
 import DownloadAppContainer from "../app-components/DownloadAppContainer";
 
 export default function GetApp() {
-  const isMobile = useIsMobile();
   return (
-    <main className={`flex bg-[#003366]`}>
+    <main className={`flex bg-[#003366] ${PaddingHeaderHeight}`}>
       <DownloadAppContainer />
     </main>
   );

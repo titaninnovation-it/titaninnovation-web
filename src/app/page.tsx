@@ -12,21 +12,43 @@ import SubscribeNewsletterContainer from "./app-components/SubscribeNewsletterCo
 import WhyUs from "./app-components/WhyUs";
 import OurDistributors from "./app-components/OurDistributors";
 import { useAuthStore } from "@/libs/zustand/authStore";
+import { PaddingHeaderHeight } from "@/components/Header";
 
 export default function Home() {
   const authStore = useAuthStore();
   return (
-    <main className={`flex flex-col bg-[#FAF2EA]`}>
+    <main className={`flex flex-col bg-[#FAF2EA] ${PaddingHeaderHeight}`}>
       <BannerCarousell />
       <MainContainer />
-      <OurDistributors />
-      {/* <WhyUs /> */}
-      <HowAndStepContainer type="buy" />
+      <div
+        className="flex flex-col bg-[#]"
+        style={{
+          backgroundImage: `url('/bg-pattern01.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <OurDistributors />
+        {/* <WhyUs /> */}
+        <HowAndStepContainer type="buy" />
+      </div>
+
       <PorpularHeavyMachineryContainer />
-      {authStore.profile && (
-        <HeavyEquipmentsContainer title="My Browsing History" type={"buy"} />
-      )}
-      <AbountUsContainer />
+      <div
+        className="flex flex-col bg-white"
+        style={{
+          backgroundImage: `url('/Group-OurStory.png')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {authStore.profile && (
+          <HeavyEquipmentsContainer title="My Browsing History" type={"buy"} />
+        )}
+        <AbountUsContainer />
+      </div>
       <DownloadAppContainer />
       {/* <SubscribeNewsletterContainer /> */}
       <FAQsContainer />

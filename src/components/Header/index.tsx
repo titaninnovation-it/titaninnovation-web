@@ -10,6 +10,10 @@ import { usePathname, useRouter } from "next/navigation";
 import ProfileMenu from "./ProfileMenu";
 import { Colors } from "@/constants/Colors";
 import { useAuthStore } from "@/libs/zustand/authStore";
+import Image from "next/image";
+
+export const HeaderHeight = `h-[7vh]`;
+export const PaddingHeaderHeight = `pt-[7vh]`;
 
 export default function Header() {
   const authStore = useAuthStore();
@@ -20,7 +24,9 @@ export default function Header() {
   const isIndexPage = pathName[pathName.length - 1] === "/";
   return (
     <div
-      className={`flex bg-white ${isMobile ? `p-5` : `p-4`}`}
+      className={`flex fixed z-50 w-full items-center ${HeaderHeight} bg-white ${
+        isMobile ? `px-2` : `px-10`
+      }`}
       style={{
         backgroundColor: isIndexPage ? Colors.primary : Colors.white,
       }}
@@ -40,25 +46,37 @@ export default function Header() {
         />
       )}
       <Nav visible={visibleNav} onClose={() => setVisibleNav(false)} />
-      <div className="flex ml-auto items-center">
+      <div
+        className={`flex ml-auto items-center ${isMobile ? `gap-4` : `gap-10`}`}
+      >
+        <button
+          className="flex w-full items-center"
+          onClick={() => router.push("/get-app")}
+        >
+          <div
+            className={`relative mr-2 ${
+              isMobile ? `h-[20px] w-[20px]` : `h-[30px] w-[30px]`
+            }`}
+          >
+            <Image
+              src={`/logo.png`}
+              objectFit="contain"
+              alt=""
+              fill
+              className="rounded-md"
+            />
+          </div>
+          <Text
+            title="Get App"
+            size="small"
+            className=" whitespace-nowrap text-[#1656B1]"
+          />
+        </button>
         {authStore.profile ? (
           <ProfileMenu userProfile={authStore.profile} />
         ) : (
           <>
-            <button
-              className="flex w-full items-center mr-4"
-              onClick={() => router.push("/get-app")}
-            >
-              <Text
-                title="Get App"
-                size="small"
-                className=" whitespace-nowrap text-[#1656B1]"
-              />
-            </button>
-            <button
-              className="flex w-full items-center mr-4"
-              onClick={() => router.push("/login")}
-            >
+            <button className="flex" onClick={() => router.push("/login")}>
               <Text title="Login" size="small" className=" whitespace-nowrap" />
             </button>
             <button

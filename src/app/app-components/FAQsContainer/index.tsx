@@ -12,6 +12,12 @@ export default function FAQsContainer() {
   return (
     <div
       className={`flex bg-[#FAA71B] ${isMobile?`p-4`:`p-20`}`}
+      style={{
+        backgroundImage: `url('/Artboard 3@3x-8 1.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
     >
       <div className={`flex bg-white shadow-lg rounded-2xl ${isMobile ? `flex-col` : `flex-row p-10 w-full`}`}>
         {!isHide && <AnyQuestionsText />}
