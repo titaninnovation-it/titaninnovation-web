@@ -12,8 +12,8 @@ import { Colors } from "@/constants/Colors";
 import { useAuthStore } from "@/libs/zustand/authStore";
 import Image from "next/image";
 
-export const HeaderHeight = `h-[7vh]`;
-export const PaddingHeaderHeight = `pt-[7vh]`;
+export const HeaderHeight = `h-[80px]`;
+export const PaddingHeaderHeight = `pt-[80px]`;
 
 export default function Header() {
   const authStore = useAuthStore();
