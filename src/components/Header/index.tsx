@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ButtonIcon from "../Shared/ButtonIcon";
 import CustomIcon from "../Shared/CustomIcon";
 import Nav from "./Nav";
