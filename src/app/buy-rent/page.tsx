@@ -23,6 +23,7 @@ import { Colors } from "@/constants/Colors";
 import { AxiosLibs } from "@/libs/axios-client";
 import TextInput from "@/components/Shared/TextInput";
 import ItemPickerLabel from "@/components/Shared/ItemPickerLabel";
+import { PaddingHeaderHeight } from "@/components/Header";
 
 export default function Page() {
   const router = useRouter();
@@ -144,7 +145,7 @@ export default function Page() {
   }, []);
 
   return (
-    <main className={`flex flex-col`}>
+    <main className={`flex flex-col ${PaddingHeaderHeight}`}>
       <BannerCarousell />
       <div
         className={`flex bg-[#FFFFFF] gap-2 mb-10  flex-col ${

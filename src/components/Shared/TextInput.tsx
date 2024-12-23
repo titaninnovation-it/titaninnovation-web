@@ -27,6 +27,7 @@ export default function TextInput(props: TextInputProps) {
       <div className="flex relative rounded shadow-sm">
         {props.iconLeft}
         <input
+          autoCapitalize={props.autoCapitalize}
           type={
             isSecureEntry
               ? "password"

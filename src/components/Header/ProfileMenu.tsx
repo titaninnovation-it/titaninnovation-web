@@ -7,6 +7,7 @@ import Text from "../Shared/Text";
 import { UserProfileDto } from "@/orval/type.schemas";
 import useIsMobile from "@/libs/useIsMobile";
 import { useAuthStore } from "@/libs/zustand/authStore";
+import Image from "next/image";
 interface ProfileMenuProps {
   userProfile: UserProfileDto;
 }
@@ -69,17 +70,20 @@ export default function ProfileMenu(props: ProfileMenuProps) {
         className="flex items-center justify-center"
         onClick={() => handleOpen(true)}
       >
-        <img
-          src={`/logo.png`}
-          alt=""
-          style={{
-            width: isMobile ? 20 : 30,
-            height: isMobile ? 20 : 30,
-            objectFit: "contain",
-            marginRight: 5,
-            borderRadius: 1000,
-          }}
-        />
+        <div
+          className={`relative rounded-full mr-2 ${
+            isMobile ? `w-[20px] h-[20px]` : `w-[30px] h-[30px]`
+          }`}
+        >
+          <Image
+            src={`${props.userProfile.profilePictureUrl}`}
+            className="rounded-full"
+            alt=""
+            fill
+            objectFit="cover"
+          />
+        </div>
+
         <Text
           title={`Hi, ${props.userProfile.picFullName}`}
           size="medium"

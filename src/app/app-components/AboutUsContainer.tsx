@@ -5,7 +5,7 @@ import useIsMobile from "@/libs/useIsMobile";
 export default function AbountUsContainer() {
   const isMobile = useIsMobile();
   return (
-    <div className={`flex bg-white ${isMobile ? `flex-col p-4` : `p-20`}`}>
+    <div className={`flex ${isMobile ? `flex-col p-4` : `p-20`}`}>
       <div
         className={`flex flex-col flex-1 justify-center ${
           isMobile ? `text-center` : `pl-40`
@@ -23,7 +23,7 @@ export default function AbountUsContainer() {
         />
       </div>
       <div
-        className={`shadow-lg rounded-lg ${
+        className={`shadow-lg rounded-lg bg-white ${
           isMobile ? `p-6` : `flex-[20%] p-10`
         }`}
       >

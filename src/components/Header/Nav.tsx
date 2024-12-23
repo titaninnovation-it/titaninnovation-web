@@ -9,6 +9,10 @@ import CustomIcon from "../Shared/CustomIcon";
 import SubMenuBuy from "./SubMenuBuy";
 import SubMenu from "./SubMenu";
 import { ListingType } from "@/orval/type.schemas";
+import Image from "next/image";
+import { HeaderHeight } from ".";
+import { Colors } from "@/constants/Colors";
+import { usePathname } from "next/navigation";
 
 interface NavProps {
   visible: boolean;
@@ -16,6 +20,7 @@ interface NavProps {
 }
 
 export type TNavItem = {
+  id: number;
   title: string;
   path: string;
   subMenuComponents?: ReactNode;
@@ -26,10 +31,12 @@ export type TMenuItemWithSubMenuProps = {
 };
 
 export default function Nav(props: NavProps) {
+  const pathname = usePathname();
   const router = useRouter();
   const isMobile = useIsMobile();
   const navItems: TNavItem[] = [
     {
+      id: 0,
       title: "Buy",
       path: "",
       subMenuComponents: (
@@ -44,10 +51,12 @@ export default function Nav(props: NavProps) {
       ),
     },
     {
+      id: 1,
       title: "Sell",
       path: "/form-sell",
     },
     {
+      id: 2,
       title: "Rent",
       path: "",
       subMenuComponents: (
@@ -72,6 +81,7 @@ export default function Nav(props: NavProps) {
       ),
     },
     {
+      id: 3,
       title: "Services",
       path: "",
       subMenuComponents: (
@@ -87,18 +97,22 @@ export default function Nav(props: NavProps) {
       ),
     },
     {
+      id: 4,
       title: "Our Partners",
       path: "/partners",
     },
     {
+      id: 5,
       title: "About Us",
       path: "/about-us",
     },
     {
+      id: 6,
       title: "FAQ",
       path: "/faq",
     },
     {
+      id: 7,
       title: "More",
       path: "",
       subMenuComponents: (
@@ -127,12 +141,29 @@ export default function Nav(props: NavProps) {
     router.push(path);
   };
 
+  // const getBorderColor = (item: TNavItem) => {
+  //   if (item.id == 0 && ["/buy-rent"].includes(pathname)) {
+  //     return Colors.primary;
+  //   } 
+  //   else if(item.id == 1  && [`form-sell`].includes(pathname)){
+  //     return Colors.primary
+  //   }
+  //   else if(item.id == 2 && [`listingType=Rent`]){
+  //     return Colors.primary
+  //   }
+  //   else {
+  //     return Colors.white;
+  //   }
+  // };
+
   return (
     <>
       {!isMobile || props.visible ? (
         <div
           className={`flex w-full inset-x-0 top-0 z-20 overflow-x-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] ${
-            isMobile ? `flex-col fixed h-screen pb-[3rem] bg-white` : `flex-row`
+            isMobile
+              ? `flex-col fixed h-screen pb-[3rem] bg-white`
+              : `items-center flex-row`
           }`}
         >
           {isMobile && (
@@ -150,22 +181,24 @@ export default function Nav(props: NavProps) {
               }}
             />
           )}
-          <img
-            src={`/titan_innovation_logo.png`}
-            alt=""
-            className={`${isMobile ? `mx-8` : `mr-10`}`}
-            style={{
-              width: 125,
-              height: 50,
-              objectFit: "contain",
-            }}
+          <div
+            className={`relative ${
+              isMobile ? `mx-4 w-[130px] h-[100px]` : `w-[120px] h-[7vh]`
+            }`}
             onClick={() => {
               if (isMobile) {
                 props.onClose();
               }
               router.push("/");
             }}
-          />
+          >
+            <Image
+              src={`/titan_innovation_logo.png`}
+              objectFit="contain"
+              alt=""
+              fill
+            />
+          </div>
           {navItems.map((item) => {
             return (
               <div key={item.path} className={`flex flex-col`}>
@@ -181,7 +214,15 @@ export default function Nav(props: NavProps) {
                       handlePush(item.path);
                     }
                   }}
-                  className={`flex w-full p-4 cursor-pointer justify-center items-center`}
+                  className={`flex ${HeaderHeight} w-full px-4 cursor-pointer justify-center items-center`}
+                  style={{}
+                    // isMobile
+                    //   ? {}
+                    //   : {
+                    //       borderColor: getBorderColor(item),
+                    //       borderBottomWidth: 4,
+                    //     }
+                  }
                 >
                   <div className="flex flex-row w-full">
                     <Text

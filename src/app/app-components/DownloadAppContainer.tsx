@@ -6,7 +6,15 @@ import Image from "next/image";
 export default function DownloadAppContainer() {
   const isMobile = useIsMobile();
   return (
-    <div className={`flex bg-[#003366] ${isMobile ? `flex-col` : ``}`}>
+    <div
+      className={`flex bg-[#003366] ${isMobile ? `flex-col` : ``}`}
+      style={{
+        backgroundImage: `url('/TITAN.png')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className={`flex-col ${isMobile ? `p-4` : `p-20`}`}>
         <Text
           title="DOWNLOAD TITAN INNOVATION APP NOW"
@@ -58,7 +66,7 @@ export default function DownloadAppContainer() {
         className="flex self-end"
         style={{
           position: "relative",
-          height: isMobile ? 240 :500,
+          height: isMobile ? 240 : 500,
           width: isMobile ? 400 : 950,
         }}
         onClick={() => {
